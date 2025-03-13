@@ -1,4 +1,4 @@
-// vars/example.groovy
-def call(String name = 'DevOps Engineer') {
-    echo "Hello, ${name}! Welcome to the Jenkins Shared Library."
-}
+// vars/exampleStep.groovy (in your shared library)
+def call() {
+    echo "Executing exampleStep from shared library"
+} 

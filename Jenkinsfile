@@ -1,5 +1,6 @@
-@Library('my-shared-library') _ 
-
+libraries {
+    lib('my-shared-library')
+} 
 pipeline {
     agent any
 

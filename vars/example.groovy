@@ -1,4 +1,3 @@
-// vars/exampleStep.groovy (in your shared library)
 def call() {
-    echo "Executing exampleStep from shared library"
-} 
+    echo 'Executing example step from the shared library...'
+}

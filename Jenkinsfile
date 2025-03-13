@@ -1,4 +1,4 @@
-@Library('my-shared-library') _
+@Library('my-shared-library') _ 
 
 pipeline {
     agent any
@@ -8,35 +8,27 @@ pipeline {
             steps {
                 script {
                     echo "Initializing the pipeline"
-                    exampleStep()  // Calling function from Shared Library
-                }
-            }
-            
-            stage('Build') {
-                steps {
-                    script {
-                        echo 'Building the application...'
-                        exampleStep() // Using function from shared library
-                    }
-                }
-            }
-
-            stage('Test') {
-                steps {
-                    script {
-                        echo 'Running tests...'
-                        exampleStep()
-                    }
-                }
-            }
-
-            stage('Deploy') {
-                steps {
-                    script {
-                        exampleStep() // Using the shared function again
-                        echo 'Deploying the application...'
-                    }
+                    exampleStep()  // Calling the shared library step
                 }
             }
         }
-}
+
+        stage('Build') {
+            steps {
+                script {
+                    echo 'Building the application...'
+                    exampleStep() // Ensure this function exists in your shared library
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    exampleStep() // Using the shared function again
+                    echo 'Deploying the application...'
+                }
+            }
+        }
+    }
+} 

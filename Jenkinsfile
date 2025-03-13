@@ -8,25 +8,32 @@ pipeline {
             steps {
                 script {
                     echo "Initializing the pipeline"
-                    exampleStep()  // Calling the shared library step
+                    exampleStep()  // Make sure this function exists in your shared library
                 }
             }
         }
-
+        
         stage('Build') {
             steps {
                 script {
-                    echo 'Building the application...'
-                    exampleStep() // Ensure this function exists in your shared library
+                    echo 'Building...'
                 }
             }
         }
 
+        stage('Test') {
+            steps {
+                script {
+                    echo 'Running Tests...'
+                }
+            }
+        }
+        
         stage('Deploy') {
             steps {
                 script {
-                    exampleStep() // Using the shared function again
-                    echo 'Deploying the application...'
+                    exampleStep()
+                    echo 'Deploying application...'
                 }
             }
         }
